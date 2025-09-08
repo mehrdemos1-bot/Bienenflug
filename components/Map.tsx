@@ -103,6 +103,7 @@ export const MapComponent: React.FC<MapComponentProps> = ({ hives, onAddHive, se
                 url={MAP_TILE_URL_SATELLITE} 
                 attribution={MAP_ATTRIBUTION_SATELLITE}
                 zIndex={1}
+                maxNativeZoom={18}
             />
             
             {/* Labels are kept on a separate pane to ensure they render on top of the filter. */}
@@ -111,6 +112,7 @@ export const MapComponent: React.FC<MapComponentProps> = ({ hives, onAddHive, se
                 url={MAP_TILE_URL_LABELS}
                 attribution={MAP_ATTRIBUTION_LABELS}
                 pane="labels"
+                maxNativeZoom={18}
             />
             <MapClickHandler onAddHive={onAddHive} />
             
