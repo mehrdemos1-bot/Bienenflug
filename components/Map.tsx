@@ -12,6 +12,24 @@ import {
     BEEHIVE_ICON_SVG 
 } from '../constants';
 
+// Helper component to fix map sizing issues in flexible layouts
+const MapSizingFix: React.FC = () => {
+    const map = useMap();
+    useEffect(() => {
+        // A brief delay to allow the container to render and settle its size,
+        // then tell Leaflet to update its size. This is a common fix for flexbox/grid layouts.
+        const timer = setTimeout(() => {
+            map.invalidateSize();
+        }, 100);
+
+        return () => {
+            clearTimeout(timer);
+        };
+    }, [map]);
+    return null;
+};
+
+
 // Helper component to handle map click events for adding hives
 const MapClickHandler: React.FC<{ onAddHive: (lat: number, lng: number) => void }> = ({ onAddHive }) => {
     useMapEvents({
@@ -97,6 +115,8 @@ export const MapComponent: React.FC<MapComponentProps> = ({ hives, onAddHive, se
             <MapClickHandler onAddHive={onAddHive} />
             
             <RecenterView center={viewCenter} />
+
+            <MapSizingFix />
 
             {/* Filter effect using mix-blend-mode. This correctly handles overlaps. */}
             {hives.length > 0 && (
