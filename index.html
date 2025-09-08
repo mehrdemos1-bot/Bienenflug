@@ -16,6 +16,20 @@
         .leaflet-filter-pane {
             mix-blend-mode: screen;
         }
+        /* Fügt einen weichen unteren Rand bei scrollbaren Elementen auf Mobilgeräten hinzu,
+           um anzuzeigen, dass mehr Inhalt vorhanden ist. */
+        @media (max-width: 767px) {
+            .mobile-scroll-fade::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 3rem; /* 48px */
+                background: linear-gradient(to top, white, transparent);
+                pointer-events: none;
+            }
+        }
     </style>
 <script type="importmap">
 {
@@ -28,7 +42,6 @@
   }
 }
 </script>
-<link rel="stylesheet" href="/index.css">
 </head>
 <body class="bg-gray-100">
     <div id="root"></div>
