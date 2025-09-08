@@ -61,7 +61,7 @@ const App: React.FC = () => {
         <div className="flex flex-col h-screen font-sans">
             <Header />
             <div className="flex flex-col md:flex-row flex-1 min-h-0">
-                <aside className="w-full md:w-1/3 lg:w-1/4 xl:w-1/5 md:flex-shrink-0 bg-white shadow-lg p-2 md:p-4 overflow-y-auto flex flex-col h-2/5 md:h-auto">
+                <aside className="relative w-full md:w-1/3 lg:w-1/4 xl:w-1/5 md:flex-shrink-0 bg-white shadow-lg p-2 md:p-4 overflow-y-auto flex flex-col h-2/5 md:h-auto mobile-scroll-fade">
                     <AddressSearch onSearchResultClick={handleSearchResultClick} />
                     <Instructions />
                     <RadiusSelector 
