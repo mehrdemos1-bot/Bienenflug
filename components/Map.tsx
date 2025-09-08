@@ -98,7 +98,7 @@ export const MapComponent: React.FC<MapComponentProps> = ({ hives, onAddHive, se
 
 
     return (
-        <MapContainer center={MAP_INITIAL_CENTER} zoom={MAP_INITIAL_ZOOM} scrollWheelZoom={true} className="h-full w-full" maxZoom={19}>
+        <MapContainer center={MAP_INITIAL_CENTER} zoom={MAP_INITIAL_ZOOM} scrollWheelZoom={true} className="h-full w-full" maxZoom={18}>
             <TileLayer 
                 url={MAP_TILE_URL_SATELLITE} 
                 attribution={MAP_ATTRIBUTION_SATELLITE}
